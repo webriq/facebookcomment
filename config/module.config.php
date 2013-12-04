@@ -54,6 +54,9 @@ return array(
                                             'specific'  => 'facebookComment.form.settings.mode.specific',
                                             'admins'    => 'facebookComment.form.settings.mode.admins',
                                         ),
+                                        'attributes'    => array(
+                                            'value'     => 'default',
+                                        ),
                                     ),
                                 ),
                             ),
@@ -167,8 +170,9 @@ return array(
                                     'type'      => 'Zork\Form\Element\Number',
                                     'name'      => 'width',
                                     'options'   => array(
-                                        'label'     => 'facebookComment.paragraph.form.width',
-                                        'required'  => false,
+                                        'label'         => 'facebookComment.paragraph.form.width',
+                                        'description'   => 'facebookComment.paragraph.form.width.description',
+                                        'required'      => false,
                                     ),
                                     'attributes'    => array(
                                         'min'       => 100,
@@ -181,8 +185,9 @@ return array(
                                     'type'      => 'Zork\Form\Element\Url',
                                     'name'      => 'href',
                                     'options'   => array(
-                                        'label'     => 'facebookComment.paragraph.form.href',
-                                        'required'  => false,
+                                        'label'         => 'facebookComment.paragraph.form.href',
+                                        'description'   => 'facebookComment.paragraph.form.href.description',
+                                        'required'      => false,
                                     ),
                                 ),
                             ),
