@@ -1,0 +1,52 @@
+<?php
+
+/* @var $openGraph \Zork\View\Helper\OpenGraph */
+$namespace  = 'http://ogp.me/ns/fb#';
+$openGraph  = $this->openGraph();
+$prefix     = $openGraph->getPrefixByNs( $namespace, true );
+
+if ( ! $prefix )
+{
+    $openGraph->addPrefix( $prefix = 'fb', $namespace );
+}
+
+if ( ! $openGraph->hasProperty( $prefix . ':admins' ) &&
+     ! $openGraph->hasProperty( $prefix . ':app_id' ) )
+{
+    /* @var $settings \Grid\Facebook\Model\ApplicationSettings\AdapterInterface */
+    $settings   = $this->paragraph->applicationSettings;
+    $appId      = trim( $settings->getSetting( 'appId' ) );
+
+    if ( 'admins' == $settings->mode )
+    {
+        $admins = preg_split(
+            '/[\s,]+/',
+            (string) $settings->getSetting( 'admins' )
+        );
+
+        if ( ! empty( $admins ) )
+        {
+            foreach ( $admins as $admin )
+            {
+                if ( ! empty( $admin ) )
+                {
+                    $openGraph->append( $prefix . ':admins', $admin );
+                }
+            }
+        }
+    }
+    else if ( $appId )
+    {
+        $openGraph->append( $prefix . ':app_id', $appId );
+    }
+}
+
+echo $this->htmlTag( 'div', '', array_filter( array(
+    'class'             => 'fb-comments',
+    'data-js-type'      => 'js.facebook.xfbml',
+    'data-colorscheme'  => $this->paragraph->colorscheme,
+    'data-href'         => $this->paragraph->href,
+    'data-num-posts'    => $this->paragraph->numPosts,
+    'data-order-by'     => $this->paragraph->orderBy,
+    'data-width'        => $this->paragraph->width,
+) ) );

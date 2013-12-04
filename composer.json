@@ -1,0 +1,52 @@
+{
+    "name": "gridguyz/facebookcomment",
+    "type": "gridguyz-module",
+    "description": "FacebookComment module for Gridguyz CMS",
+    "license": "CC-BY-SA-3.0",
+    "keywords": [
+        "gridguyz",
+        "module",
+        "facebook-comment",
+        "facebook",
+        "comment"
+    ],
+    "homepage": "http://gridguyz.com/",
+    "authors": [
+        {
+            "name": "David Pozsar",
+            "email": "david.pozsar@megaweb.hu",
+            "homepage": "http://gridguyz.com/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "dev@megaweb.hu",
+        "source": "https://github.com/gridguyz/facebookcomment"
+    },
+    "require": {
+        "php": ">=5.4",
+        "gridguyz/module-installer": "*",
+        "gridguyz/core": "*",
+        "gridguyz/facebook": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Grid\\FacebookComment": "src/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    },
+    "extra": {
+        "display-icon": {
+            "63": "https://raw.github.com/gridguyz/facebookcomment/%reference%/icons/63x63.png"
+        },
+        "display-name": {
+            "en": "Facebook Comment"
+        },
+        "display-description": {
+            "en": "When this APP is enabled, you can place a Facebook Comment Paragraph next to any content paragraph on any of you pages. If the content is shared, then the comment will appear on the timeline of your Facebook page. Settings will require a Facebook ID for moderation."
+        },
+        "module": "Grid\\FacebookComment"
+    }
+}
