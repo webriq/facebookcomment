@@ -7,7 +7,7 @@ return array(
                 'type'          => 'phpArray',
                 'base_dir'      => __DIR__ . '/../languages/facebookComment',
                 'pattern'       => '%s.php',
-                'text_domain'   => 'facebook',
+                'text_domain'   => 'facebookComment',
             ),
         ),
     ),
