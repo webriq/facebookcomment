@@ -1,8 +1,10 @@
 <?php
 
 /* @var $openGraph \Zork\View\Helper\OpenGraph */
+/* @var $request \Zend\Http\PhpEnvironment\Request */
 $namespace  = 'http://ogp.me/ns/fb#';
 $openGraph  = $this->openGraph();
+$request    = $this->appService( 'Request' );
 $prefix     = $openGraph->getPrefixByNs( $namespace, true );
 
 if ( ! $prefix )
@@ -41,12 +43,14 @@ if ( ! $openGraph->hasProperty( $prefix . ':admins' ) &&
     }
 }
 
-echo $this->htmlTag( 'div', '', array_filter( array(
+echo $this->htmlTag( 'div', '', array_merge( array(
     'class'             => 'fb-comments',
     'data-js-type'      => 'js.facebook.xfbml',
+    'data-href'         => $request->getUri()->toString(),
+), array_filter( array(
     'data-colorscheme'  => $this->paragraph->colorscheme,
     'data-href'         => $this->paragraph->href,
     'data-num-posts'    => $this->paragraph->numPosts,
     'data-order-by'     => $this->paragraph->orderBy,
     'data-width'        => $this->paragraph->width,
-) ) );
+) ) ) );
