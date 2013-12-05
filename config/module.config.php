@@ -54,9 +54,9 @@ return array(
                                             'specific'  => 'facebookComment.form.settings.mode.specific',
                                             'admins'    => 'facebookComment.form.settings.mode.admins',
                                         ),
-                                        'attributes'    => array(
-                                            'value'     => 'default',
-                                        ),
+                                    ),
+                                    'attributes'    => array(
+                                        'value'     => 'default',
                                     ),
                                 ),
                             ),
@@ -67,6 +67,11 @@ return array(
                                     'options'   => array(
                                         'label' => 'facebookComment.form.settings.appId',
                                     ),
+                                    'attributes'    => array(
+                                        'data-js-type'                  => 'js.form.displayOnValue',
+                                        'data-js-displayonvalue-field'  => 'comment[mode]',
+                                        'data-js-displayonvalue-value'  => 'specific',
+                                    ),
                                 ),
                             ),
                             'admins' => array(
@@ -75,6 +80,11 @@ return array(
                                     'name'  => 'admins',
                                     'options'   => array(
                                         'label' => 'facebookComment.form.settings.admins',
+                                    ),
+                                    'attributes'    => array(
+                                        'data-js-type'                  => 'js.form.displayOnValue',
+                                        'data-js-displayonvalue-field'  => 'comment[mode]',
+                                        'data-js-displayonvalue-value'  => 'admins',
                                     ),
                                 ),
                             ),
