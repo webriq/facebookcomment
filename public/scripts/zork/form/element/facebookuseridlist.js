@@ -55,9 +55,10 @@
             searchText      = $( '<input type="text">' ),
             searchButton    = $( '<input type="button">' ).val( "+" );
 
-        $( "<div>" ).append( searchText )
-                    .append( searchButton )
-                    .before( element );
+        element.before(
+            $( "<div>" ).append( searchText )
+                        .append( searchButton )
+        );
 
         searchButton.on( "click", function () {
             var val = searchText.val();
