@@ -76,7 +76,7 @@ return array(
                             ),
                             'admins' => array(
                                 'spec'  => array(
-                                    'type'  => 'Zork\Form\Element\Textarea',
+                                    'type'  => 'Zork\Form\Element\Text',
                                     'name'  => 'admins',
                                     'options'   => array(
                                         'label'         => 'facebookComment.form.settings.admins',

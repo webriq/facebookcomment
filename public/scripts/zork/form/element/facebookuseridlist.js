@@ -14,6 +14,7 @@
     }
 
     js.require( "js.facebook" );
+    js.style( "/styles/scripts/taglist.css" );
 
     var search = function ( idOrName, callback ) {
         js.facebook.graph( idOrName, function ( response ) {
@@ -26,7 +27,7 @@
                 } );
             }
             else if ( ! response.name || ! response.username ||
-                      ! response.fisrt_name || ! response.last_name )
+                      ! response.first_name || ! response.last_name )
             {
                 js.require( "js.ui.dialog" ).alert( {
                     "message": js.core.translate(
@@ -36,7 +37,7 @@
             }
             else
             {
-                callback( response.id );
+                callback( response );
             }
         } );
     };
@@ -48,17 +49,94 @@
      */
     global.Zork.Form.Element.prototype.facebookUserIdList = function ( element )
     {
-        element = $( element );
+        element = $( element ).addClass( "js-tag-list ui-widget" );;
 
-        var splitWith       = /([\s\n]*,[\s\n]*|[\s\n]+)/,
+        var splitWith       = /[\s\n,]+/g,
             separator       = element.is( "textarea" ) ? ",\n" : ", ",
-            searchText      = $( '<input type="text">' ),
-            searchButton    = $( '<input type="button">' ).val( "+" );
+            searchText      = $( '<input type="search">' ),
+            searchButton    = $( '<button type="button">' ),
+            searchDiv       = $( '<div class="js-tag-search">' ),
+            userList        = $( '<div>' ),
+            addUser         = function ( user ) {
+                if ( user && user.id )
+                {
+                    var label = $( "<label />", {
+                                    "text": user.name || user.username || ( "#" + user.id ),
+                                    "class": "js-tag ui-state-default ui-widget-content ui-corner-all",
+                                    "title": user.username || ( "#" + user.id )
+                                } ).hide(),
+                        close = $( '<button type="button" />' )
+                                .button( {
+                                    "text": false,
+                                    "icons": {
+                                        "primary": "ui-icon-close"
+                                    }
+                                } )
+                                .click( function () {
+                                    label.hide( "fast", function () {
+                                        var olds    = String( element.val() ).split( splitWith ),
+                                            news    = [],
+                                            found   = false;
+
+                                        olds.forEach( function ( id ) {
+                                            if ( user.id === id )
+                                            {
+                                                found = true;
+                                            }
+                                            else if ( id )
+                                            {
+                                                news.push( id );
+                                            }
+                                        } );
+
+                                        if ( found )
+                                        {
+                                            element.val( news.join( separator ) );
+                                        }
+
+                                        label.remove();
+                                    } );
+                                } );
+
+                    userList.append( label.append( close ) );
+                    label.show( "fast" );
+                }
+            },
+            update          = function ( event, insert ) {
+                if ( insert && insert.id )
+                {
+                    addUser( insert );
+                }
+                else
+                {
+                    userList.empty();
+
+                    var ids = String( element.val() ).split( splitWith );
+
+                    ids.forEach( function ( id ) {
+                        if ( id )
+                        {
+                            search( id, addUser );
+                        }
+                    } );
+                }
+            };
 
         element.before(
-            $( "<div>" ).append( searchText )
-                        .append( searchButton )
+            searchDiv.append( searchText )
+                     .append( searchButton.button( {
+                         "text": false,
+                         "icons": {
+                             "primary": "ui-icon-plus"
+                         }
+                     } ) )
         );
+
+        element.hide()
+               .on( "change", update )
+               .before( userList );
+
+        js.facebook.init( false, update );
 
         searchButton.on( "click", function () {
             var val = searchText.val();
@@ -70,10 +148,10 @@
                         news    = [],
                         found   = false;
 
-                    insert = String( insert );
+                    insert.id = String( insert.id );
 
                     olds.forEach( function ( id ) {
-                        if ( insert === id )
+                        if ( insert.id === id )
                         {
                             found = true;
                         }
@@ -86,8 +164,9 @@
 
                     if ( ! found )
                     {
-                        news.push( insert );
-                        element.val( news.join( separator ) );
+                        news.push( insert.id );
+                        element.val( news.join( separator ) )
+                                .trigger( "change", [ insert ] );
                     }
                 } );
             }
