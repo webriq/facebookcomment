@@ -49,7 +49,8 @@
      */
     global.Zork.Form.Element.prototype.facebookUserIdList = function ( element )
     {
-        element = $( element ).addClass( "js-tag-list ui-widget" );;
+        element = $( element );
+        element.parent().addClass( "js-tag-list ui-widget" )
 
         var splitWith       = /[\s\n,]+/g,
             separator       = element.is( "textarea" ) ? ",\n" : ", ",
