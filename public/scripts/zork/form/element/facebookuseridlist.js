@@ -26,7 +26,7 @@
                 } );
             }
             else if ( ! response.name || ! response.username ||
-                        response.name !==  response.username )
+                      ! response.fisrt_name || ! response.last_name )
             {
                 js.require( "js.ui.dialog" ).alert( {
                     "message": js.core.translate(
