@@ -1,6 +1,8 @@
 <?php
 
 return array(
+    'facebookComment.facebookUserIdList.notUser.%s' => '"%s" is not a user on facebook.',
+    'facebookComment.facebookUserIdList.userNotFound.%s' => 'Facebook user "%s" not found.',
     'facebookComment.form.settings.legend' => 'Comment',
     'facebookComment.form.settings.description' => 'Please provide your Facebook (App) ID, or your administrators\' Facebook ID, in order to use the Facebook Comment plugin.',
     'facebookComment.form.settings.mode' => 'Choose application',
@@ -9,6 +11,7 @@ return array(
     'facebookComment.form.settings.mode.admins' => 'Use specific Facebook users as administrators',
     'facebookComment.form.settings.appId' => 'Facebook App ID',
     'facebookComment.form.settings.admins' => 'Administrators\' Facebook IDs',
+    'facebookComment.form.settings.admins.description' => 'Please enter your administartors\' Facebook IDs, or you can add each administrator by providing its Facebook username.',
     'facebookComment.paragraph.form.colorscheme' => 'Color scheme',
     'facebookComment.paragraph.form.colorscheme.light' => 'Light',
     'facebookComment.paragraph.form.colorscheme.dark' => 'Dark',

@@ -79,10 +79,11 @@ return array(
                                     'type'  => 'Zork\Form\Element\Textarea',
                                     'name'  => 'admins',
                                     'options'   => array(
-                                        'label' => 'facebookComment.form.settings.admins',
+                                        'label'         => 'facebookComment.form.settings.admins',
+                                        'description'   => 'facebookComment.form.settings.admins.description',
                                     ),
                                     'attributes'    => array(
-                                        'data-js-type'                  => 'js.form.displayOnValue',
+                                        'data-js-type'                  => 'js.form.displayOnValue js.form.element.facebookUserIdList',
                                         'data-js-displayonvalue-field'  => 'comment[mode]',
                                         'data-js-displayonvalue-value'  => 'admins',
                                     ),
