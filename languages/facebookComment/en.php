@@ -11,7 +11,7 @@ return array(
     'facebookComment.form.settings.mode.admins' => 'Use specific Facebook users as administrators',
     'facebookComment.form.settings.appId' => 'Facebook App ID',
     'facebookComment.form.settings.admins' => 'Administrators\' Facebook IDs',
-    'facebookComment.form.settings.admins.description' => 'Please enter your administartors\' Facebook IDs, or you can add each administrator by providing its Facebook username.',
+    'facebookComment.form.settings.admins.description' => 'Please add each of your administartors\' Facebook ID, or username.',
     'facebookComment.paragraph.form.colorscheme' => 'Color scheme',
     'facebookComment.paragraph.form.colorscheme.light' => 'Light',
     'facebookComment.paragraph.form.colorscheme.dark' => 'Dark',
