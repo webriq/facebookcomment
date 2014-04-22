@@ -100,9 +100,7 @@ return array(
                     'spec'  => array(
                         'options'   => array(
                             'options'   => array(
-                                'functions'     => array(
-                                    'label'     => 'paragraph.type-group.functions',
-                                    'order'     => 4,
+                                'social'    => array(
                                     'options'   => array(
                                         'facebookComment' => 'paragraph.type.facebookComment',
                                     ),
