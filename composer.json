@@ -1,33 +1,33 @@
 {
-    "name": "gridguyz/facebookcomment",
-    "type": "gridguyz-module",
-    "description": "FacebookComment module for Gridguyz CMS",
-    "license": "CC-BY-SA-3.0",
+    "name": "webriqcms/facebookcomment",
+    "type": "webriqcms-module",
+    "description": "FacebookComment module for WebriQ CMS",
+    "license": "BSD-3-Clause",
     "keywords": [
-        "gridguyz",
+        "webriqcms",
         "module",
         "facebook-comment",
         "facebook",
         "comment"
     ],
-    "homepage": "http://gridguyz.com/",
+    "homepage": "http://webriq.com/",
     "authors": [
         {
-            "name": "David Pozsar",
-            "email": "david.pozsar@megaweb.hu",
-            "homepage": "http://gridguyz.com/",
-            "role": "Developer"
+            "name": "WebriQ Dev Team",
+            "email": "info@webriq.com",
+            "homepage": "http://webriq.com/",
+            "role": "Development Team"
         }
     ],
     "support": {
-        "email": "dev@megaweb.hu",
-        "source": "https://github.com/gridguyz/facebookcomment"
+        "email": "info@webriq.com",
+        "source": "https://github.com/webriq/facebookcomment"
     },
     "require": {
         "php": ">=5.4",
-        "gridguyz/module-installer": "*",
-        "gridguyz/core": "*",
-        "gridguyz/facebook": "*"
+        "webriqcms/module-installer": "*",
+        "webriqcms/core": "*",
+        "webriqcms/facebook": "*"
     },
     "autoload": {
         "psr-0": {
@@ -39,7 +39,7 @@
     },
     "extra": {
         "display-icon": {
-            "63": "https://raw.github.com/gridguyz/facebookcomment/%reference%/icons/63x63.png"
+            "63": "https://raw.github.com/webriq/facebookcomment/%reference%/icons/63x63.png"
         },
         "display-name": {
             "en": "Facebook Comment"
